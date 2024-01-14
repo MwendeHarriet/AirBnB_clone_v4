@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This script starts a Flash Web Application."""
+"""This module starts a Flash Web Application."""
 from models import storage
 from models.state import State
 from models.city import City
@@ -15,11 +15,11 @@ app = Flask(__name__)
 
 @app.teardown_appcontext
 def close_db(error):
-    """Function removes the current SQLAlchemy Session."""
+    """ Function removes the current SQLAlchemy Session."""
     storage.close()
 
 
-@app.route('/0-hbnb', strict_slashes=False)
+@app.route('/4-hbnb/', strict_slashes=False)
 def hbnb():
     """The HBNB is alive!."""
     states = storage.all(State).values()
@@ -44,4 +44,4 @@ def hbnb():
 
 if __name__ == "__main__":
     """The main function."""
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5001)
